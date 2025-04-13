@@ -1244,7 +1244,7 @@ local chad = {
 			if context.other_card == G.jokers.cards[1] then
 				return {
 					message = localize("k_again_ex"),
-					repetitions = math.min(25, card.ability.extra.retriggers),
+					repetitions = math.min(25, (card.ability.extra.retriggers or 2)),
 					card = card,
 				}
 			else
