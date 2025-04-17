@@ -691,14 +691,14 @@ local greed = {
 	object_type = "Blind",
 	name = "cry-greed",
 	key = "greed",
-	pos = { x = 0, y = 0 }, -- use Tax as placeholder icon
+	pos = { x = 0, y = 19 }, -- use Tax as placeholder icon
 	boss = {
 		min = 1,
 		max = 10,
 	},
 	atlas = "blinds",
 	order = 22,
-	boss_colour = HEX("4ca180"),
+	boss_colour = HEX("C19030"),
 	mult = 1,
 	loc_vars = function(self, info_queue, card)
 		return {
