@@ -5222,6 +5222,13 @@ local wtf = {
 			},
 		}
 	end,
+	locked_loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				localize(card.ability.extra.type, "poker_hands"),
+			},
+		}
+	end,
 	atlas = "atlasthree",
 	rarity = 3,
 	cost = 8,
