@@ -702,43 +702,35 @@ local greed = {
 	mult = 1,
 	loc_vars = function(self, info_queue, card)
 		return {
-		    vars = {
-		        number_format(self.config.money_factor),
-		        number_format(lenient_bignum((get_blind_amount(G.GAME.round_resets.ante) * self.config.blind_mod))),
-		    }
+			vars = {
+				number_format(self.config.money_factor),
+				number_format(lenient_bignum((get_blind_amount(G.GAME.round_resets.ante) * self.config.blind_mod))),
+			},
 		}
 	end,
 	collection_loc_vars = function(self)
 		return {
 			vars = {
 				number_format(self.config.money_factor),
-				"("..number_format(self.config.blind_mod).."X base)"
-			}
+				"(" .. number_format(self.config.blind_mod) .. "X base)",
+			},
 		}
 	end,
 	set_blind = function(self, reset, silent)
 		if to_big(G.GAME.dollars) < to_big(self.config.max_scale) then
 			G.GAME.blind.chips = -- go my equations
-			(
-				(
-					get_blind_amount(G.GAME.round_resets.ante)
-						* G.GAME.starting_params.ante_scaling
-				) + (
-					math.floor(G.GAME.dollars / self.config.money_factor)
-						* ((get_blind_amount(G.GAME.round_resets.ante) * self.config.blind_mod))
-				)
-			)
-		else 
+				((get_blind_amount(G.GAME.round_resets.ante) * G.GAME.starting_params.ante_scaling) + (math.floor(
+					G.GAME.dollars / self.config.money_factor
+				) * (get_blind_amount(G.GAME.round_resets.ante) * self.config.blind_mod)))
+		else
 			G.GAME.blind.chips = -- set cap at $5000
-			(
 				(
-					get_blind_amount(G.GAME.round_resets.ante)
-						* G.GAME.starting_params.ante_scaling
-				) + (
-					math.floor(self.config.max_scale / self.config.money_factor) -- 1000 extra increments
-						* ((get_blind_amount(G.GAME.round_resets.ante) * self.config.blind_mod))
+					(get_blind_amount(G.GAME.round_resets.ante) * G.GAME.starting_params.ante_scaling)
+					+ (
+						math.floor(self.config.max_scale / self.config.money_factor) -- 1000 extra increments
+						* (get_blind_amount(G.GAME.round_resets.ante) * self.config.blind_mod)
+					)
 				)
-			)
 		end
 		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 	end,
