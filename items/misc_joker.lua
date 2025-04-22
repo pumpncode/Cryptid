@@ -9025,6 +9025,17 @@ local sock_and_sock = {
 	end,
 }
 local brokenhome = { -- X11.4 Mult, 1 in 4 chance to self-destruct at end of round
+	cry_credits = {
+		idea = {
+			"Poppip10",
+		},
+		art = {
+			"GeorgeTheRat",
+		},
+		code = {
+			"gemstonez",
+		},
+	},
 	object_type = "Joker",
 	dependencies = {
 		items = {
