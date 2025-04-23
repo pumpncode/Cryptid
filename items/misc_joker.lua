@@ -9057,32 +9057,32 @@ local brokenhome = { -- X11.4 Mult, 1 in 4 chance to self-destruct at end of rou
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
-				Xmult_mod = card.ability.extra.Xmult
+				message = localize({ type = "variable", key = "a_xmult", vars = { card.ability.extra.Xmult } }),
+				Xmult_mod = card.ability.extra.Xmult,
 			}
 		end
 		if context.end_of_round and context.game_over == false and not context.repetition and not context.blueprint then
-			if pseudorandom('brokenhome') < G.GAME.probabilities.normal / card.ability.extra.odds then
+			if pseudorandom("brokenhome") < G.GAME.probabilities.normal / card.ability.extra.odds then
 				G.E_MANAGER:add_event(Event({
 					func = function()
-						play_sound('tarot1')
+						play_sound("tarot1")
 						card.T.r = -0.2
 						card:juice_up(0.3, 0.4)
 						card.states.drag.is = true
 						card.children.center.pinch.x = true
 						G.E_MANAGER:add_event(Event({
-							trigger = 'after',
+							trigger = "after",
 							delay = 0.3,
 							blockable = false,
 							func = function()
 								G.jokers:remove_card(card)
 								card:remove()
 								card = nil
-								return true;
-							end
+								return true
+							end,
 						}))
 						return true
-					end
+					end,
 				}))
 				return {
 					message = localize("cry_divorced"),
@@ -9095,7 +9095,7 @@ local brokenhome = { -- X11.4 Mult, 1 in 4 chance to self-destruct at end of rou
 				}
 			end
 		end
-	end
+	end,
 }
 local miscitems = {
 	jimball_sprite,
