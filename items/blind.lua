@@ -700,22 +700,22 @@ local greed = {
 	order = 22,
 	boss_colour = HEX("C19030"),
 	mult = 1,
-	    loc_vars = function(self, info_queue, card)
-        return {
-            vars = {
-                number_format(5),
-                number_format(lenient_bignum((get_blind_amount(G.GAME.round_resets.ante) * 0.25))),
-            },
-        }
-    end,
-    collection_loc_vars = function(self)
-        return {
-            vars = {
-                number_format(5),
-                "(" .. number_format(0.25) .. "X base)",
-            },
-        }
-    end,
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				number_format(5),
+				number_format(lenient_bignum((get_blind_amount(G.GAME.round_resets.ante) * 0.25))),
+			},
+		}
+	end,
+	collection_loc_vars = function(self)
+		return {
+			vars = {
+				number_format(5),
+				"(" .. number_format(0.25) .. "X base)",
+			},
+		}
+	end,
 	set_blind = function(self, reset, silent)
 		if to_big(G.GAME.dollars) < to_big(5000) then
 			G.GAME.blind.chips = -- go my equations
