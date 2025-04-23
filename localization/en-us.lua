@@ -396,6 +396,13 @@ return {
 					"discarded cards",
 				},
 			},
+			bl_cry_greed = {
+				name = "The Greed",
+				text = {
+					"+#2# blind requirement",
+					"per $#1# when selected",
+				},
+			},
 			bl_cry_pinkbow = {
 				name = "Pink Bow",
 				text = {
@@ -946,7 +953,7 @@ return {
 				name = "Abstract Card",
 				text = {
 					"{X:dark_edition,C:white}^#1#{} Mult,",
-					"Counts as it's {C:attention}own{} rank and suit",
+					"Counts as its {C:attention}own{} rank and suit",
 					"{C:green}#2# in #3#{} chance card to",
 					"{C:red,E:2}destroy{} card after scoring",
 					"{C:green}#4# in #5#{} chance card to",
@@ -2592,6 +2599,15 @@ return {
 					"{C:attention}Abstract{} cards {C:attention}#1#{} time#<s>1#",
 				},
 			},
+			j_cry_brokenhome = {
+				name = "Broken Home",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult",
+					"{C:green}#2# in #3#{} chance this",
+					"card is destroyed",
+					"at end of round",
+				},
+			},
 			j_cry_spaceglobe = {
 				name = "Celestial Globe",
 				text = {
@@ -2915,7 +2931,7 @@ return {
 				unlock = {
 					"Win a run with",
 					"your final hand being",
-					"a {E:1,C:attention}Clusterfuck",
+					"a {E:1,C:attention}#1#",
 				},
 			},
 			j_cry_zooble = {
@@ -4779,6 +4795,7 @@ return {
 			cry_unredeemed = "Unredeemed...",
 			cry_active = "Active",
 			cry_inactive = "Inactive",
+			cry_divorced = "Divorced!",
 
 			k_disable_music = "Disable Music",
 
