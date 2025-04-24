@@ -878,8 +878,12 @@ local ritual = {
 	can_use = function(self, card)
 		if card.area ~= G.hand then
 			local check = true
-			if #G.hand.highlighted > card.config.max_highlighted then check = nil end
-			if #G.hand.highlighted < 1 then check = nil end
+			if #G.hand.highlighted > card.config.max_highlighted then
+				check = nil
+			end
+			if #G.hand.highlighted < 1 then
+				check = nil
+			end
 			for index, card in ipairs(G.hand.highlighted) do
 				if G.hand.highlighted[index].edition then
 					check = nil
