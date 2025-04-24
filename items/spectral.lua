@@ -878,7 +878,7 @@ local ritual = {
 	can_use = function(self, card)
 		if card.area ~= G.hand then
 			local check = true
-			if #G.hand.highlighted > card.config.max_highlighted then
+			if #G.hand.highlighted > card.ability.max_highlighted then
 				check = nil
 			end
 			if #G.hand.highlighted < 1 then
@@ -889,7 +889,7 @@ local ritual = {
 					check = nil
 				end
 			end
-			return G.hand and (#G.hand.highlighted <= card.config.max_highlighted) and check
+			return G.hand and (#G.hand.highlighted <= card.ability.max_highlighted) and check
 		else
 			local idx = 1
 			local check = true
@@ -898,7 +898,7 @@ local ritual = {
 					check = nil
 				end
 			end
-			return G.hand and (#G.hand.highlighted <= (card.config.max_highlighted + 1)) and check
+			return G.hand and (#G.hand.highlighted <= (card.ability.max_highlighted + 1)) and check
 		end
 	end,
 	use = function(self, card, area, copier)
